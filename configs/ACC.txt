@@ -1,0 +1,40 @@
+========================
+ACCESS SWITCH CONFIG
+(ACC1 / ACC2 / ACC3 / ACC4)
+========================
+
+enable
+conf t
+
+
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+
+interface range fa0/1-5
+ switchport mode access
+ switchport access vlan 10
+
+interface range fa0/6-10
+ switchport mode access
+ switchport access vlan 20
+
+interface range fa0/11-15
+ switchport mode access
+ switchport access vlan 30
+
+interface range fa0/16-20
+ switchport mode access
+ switchport access vlan 40
+
+interface gig0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40
+
+interface gig0/2
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40
+
+end
+write memory

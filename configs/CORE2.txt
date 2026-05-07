@@ -1,0 +1,30 @@
+========================
+CORE2 CONFIG
+========================
+
+enable
+conf t
+
+ip routing
+
+interface fa0/1
+ no switchport
+ ip address 10.0.3.1 255.255.255.0
+ no shutdown
+
+interface fa0/2
+ no switchport
+ ip address 10.0.4.1 255.255.255.0
+ no shutdown
+
+interface gi0/1
+ no switchport
+ ip address 10.0.5.2 255.255.255.0
+ no shutdown
+
+router ospf 1
+ router-id 4.4.4.4
+ network 10.0.0.0 0.0.255.255 area 0
+
+end
+write memory
